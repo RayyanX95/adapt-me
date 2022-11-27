@@ -20,11 +20,11 @@ const useBreedList = (animal) => {
       setStatus("Loading...");
 
       const res = await fetch(
-        `http://pets-v2.dev-apis.com/breed?animal=${animal}`
+        `http://pets-v2.dev-apis.com/breeds?animal=${animal}`
       );
-      const json = res.json();
-      localCache[animal] = json;
-      setBreedList(localCache[animal]);
+      const json = await res.json();
+      localCache[animal] = json.breeds || [];
+      setBreedList(localCache[animal] || []);
       setStatus("Loaded :)");
     }
   }, [animal]);
