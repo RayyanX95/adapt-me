@@ -1,13 +1,16 @@
+import { StrictMode } from "react";
 import { render } from "react-dom";
 
 import SearchParams from "./SearchParams.jsx";
 
 const App = () => {
   return (
-    <div>
-      <h1>Adapt Me!</h1>
-      <SearchParams />
-    </div>
+    <StrictMode>
+      <div>
+        <h1>Adapt Me!</h1>
+        <SearchParams />
+      </div>
+    </StrictMode>
   );
 };
 
