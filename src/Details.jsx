@@ -1,7 +1,8 @@
-import { Component } from "react";
+import { Component, useContext } from "react";
 import { useParams } from "react-router-dom";
 import Carousel from "./Carousel";
 import ErrorBoundary from "./ErrorBoundary";
+import ThemeContext from "./ThemeContext";
 
 class Details extends Component {
   state = { loading: true };
@@ -15,7 +16,6 @@ class Details extends Component {
   }
 
   render() {
-    throw "Intended error occurred :)";
     if (this.state.loading) {
       return <h2>loading … </h2>;
     }
@@ -29,7 +29,9 @@ class Details extends Component {
         <div>
           <h1>{name}</h1>
           <h2>{`${animal} — ${breed} — ${city}, ${state}`}</h2>
-          <button>Adopt {name}</button>
+          <button style={{ backgroundColor: this.props.theme }}>
+            Adopt {name}
+          </button>
           <p>{description}</p>
         </div>
       </div>
@@ -39,9 +41,10 @@ class Details extends Component {
 
 const WrappedDetails = () => {
   const params = useParams();
+  const [theme] = useContext(ThemeContext);
   return (
     <ErrorBoundary>
-      <Details params={params} />
+      <Details theme={theme} params={params} />
     </ErrorBoundary>
   );
 };
