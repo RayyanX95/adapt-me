@@ -2,12 +2,13 @@
   "name": "complete-intro-react-v7",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "source": "src/index.html",
   "scripts": {
-    "dev": "parcel src/index.html",
+    "dev": "parcel",
     "format": "prettier --write \"src/**/*.{js, jsx, json}\"",
     "format:check": "prettier --check \"src/**/*.{js, jsx, json}\"",
-    "lint": "eslint \"src/**/*.{js, jsx, json}\" --quiet"
+    "lint": "eslint \"src/**/*.{js, jsx, json}\" --quiet",
+    "build": "parcel build"
   },
   "keywords": [],
   "author": "",
