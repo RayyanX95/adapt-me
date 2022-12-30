@@ -1,6 +1,5 @@
 import { StrictMode, useState } from "react";
-import { render } from "react-dom";
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import { Routes, Route, Link } from "react-router-dom";
 
 import SearchParams from "./SearchParams.jsx";
 import Details from "./Details";
@@ -11,15 +10,13 @@ const App = () => {
   return (
     <StrictMode>
       <ThemeContext.Provider value={theme}>
-        <BrowserRouter>
-          <Link to="/">
-            <h1>Adapt Me!</h1>
-          </Link>
-          <Routes>
-            <Route path="/details/:id" element={<Details />} />
-            <Route path="/" element={<SearchParams />} />
-          </Routes>
-        </BrowserRouter>
+        <Link to="/">
+          <h1>Adapt Me!</h1>
+        </Link>
+        <Routes>
+          <Route path="/details/:id" element={<Details />} />
+          <Route path="/" element={<SearchParams />} />
+        </Routes>
       </ThemeContext.Provider>
     </StrictMode>
   );
@@ -48,4 +45,4 @@ const App = () => {
 //   );
 // };
 
-render(<App />, document.getElementById("root"));
+export default App;
