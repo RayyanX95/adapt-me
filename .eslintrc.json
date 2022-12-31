@@ -5,17 +5,29 @@
     "plugin:react/recommended",
     "plugin:jsx-a11y/recommended",
     "plugin:react-hooks/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:@typescript-eslint/recommended-requiring-type-checking",
+    // prettier plugin should be the last one 👇🏻
     "prettier"
   ],
   "rules": {
     "react/prop-types": 0,
     "react/react-in-jsx-scope": 0,
+    "@typescript-eslint/no-empty-function": 0,
     "no-unused-vars": "warn"
   },
-  "plugins": ["react", "import", "jsx-a11y", "react-hooks"],
+  "plugins": [
+    "react",
+    "import",
+    "jsx-a11y",
+    "react-hooks"
+  ],
   "parserOptions": {
     "ecmaVersion": 2022,
     "sourceType": "module",
+    "project": [
+      "./tsconfig.json"
+    ],
     "ecmaFeatures": {
       "jsx": true
     }
@@ -29,9 +41,27 @@
     "react": {
       "version": "detect"
     },
+    //* For `reactjavascript`
+    // "import/resolver": {
+    //   "node": {
+    //     "extensions": [
+    //       ".js",
+    //       ".jsx"
+    //     ]
+    //   }
+    // }
+    //* for `reacttypescript`
+    "import/parser": {
+      "import/parser": {
+        "@typescript-eslint/parser": [
+          ".ts",
+          ".tsx"
+        ]
+      }
+    },
     "import/resolver": {
-      "node": {
-        "extensions": [".js", ".jsx"]
+      "typescript": {
+        "alwaysTryTypes": true
       }
     }
   }
