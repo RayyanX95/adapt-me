@@ -8,6 +8,7 @@
     "format": "prettier --write \"src/**/*.{js, jsx, json}\"",
     "format:check": "prettier --check \"src/**/*.{js, jsx, json}\"",
     "lint": "eslint \"src/**/*.{js,jsx,json,ts,tsx}\" --quiet",
+    "typecheck": "tsc --noEmit",
     "build": "parcel build"
   },
   "keywords": [],

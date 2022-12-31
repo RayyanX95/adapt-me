@@ -1,18 +1,22 @@
-import { useEffect, useRef } from "react";
+import { FunctionComponent, MutableRefObject, useEffect, useRef } from "react";
 import { createPortal } from "react-dom";
 
-const Modal = ({ children }) => {
-  const elRef = useRef(null);
+const Modal: FunctionComponent = ({ children }) => {
+  const elRef: MutableRefObject<HTMLDivElement | null> = useRef(null);
   if (!elRef.current) {
     elRef.current = document.createElement("div");
   }
 
   useEffect(() => {
     const modalRoot = document.getElementById("modal");
-    modalRoot.appendChild(elRef.current);
+    if (!elRef.current) return;
+    modalRoot?.appendChild(elRef.current);
 
     //* Clean the modal content from the DOM when the modal is unmounted / destroyed.
-    return () => modalRoot.removeChild(elRef.current);
+    return () => {
+      if (!elRef.current) return;
+      modalRoot?.removeChild(elRef.current);
+    }
   }, []);
 
   //* createPortal(content, elementToAttachContent)

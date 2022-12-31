@@ -1,6 +1,8 @@
 import Pet from "./Pet";
+import { Pet as PetType } from "./api-responses-types";
+import { FunctionComponent } from "react";
 
-const Results = ({ pets }) => {
+const Results: FunctionComponent<{ pets: PetType[] }> = ({ pets }) => {
   return (
     <div>
       {!pets.length ? (
@@ -14,7 +16,7 @@ const Results = ({ pets }) => {
             key={p.id}
             images={p.images}
             location={`${(p.city, p.state)}`}
-            id={p.id}
+            id={p.id.toString()}
           />
         ))
       )}
