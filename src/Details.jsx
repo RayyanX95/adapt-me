@@ -1,8 +1,9 @@
-import { Component, useContext } from "react";
+import { Component } from "react";
 import { useParams } from "react-router-dom";
 import Carousel from "./Carousel";
+import { connect } from "react-redux";
+
 import ErrorBoundary from "./ErrorBoundary";
-import ThemeContext from "./ThemeContext";
 import Modal from "./Modal";
 
 class Details extends Component {
@@ -58,12 +59,14 @@ class Details extends Component {
   }
 }
 
+const mapStateToProps = ({ theme }) => ({ theme });
+const ReduxWrappedDetails = connect(mapStateToProps)(Details);
+
 const WrappedDetails = () => {
   const params = useParams();
-  const [theme] = useContext(ThemeContext);
   return (
     <ErrorBoundary>
-      <Details theme={theme} params={params} />
+      <ReduxWrappedDetails params={params} />;
     </ErrorBoundary>
   );
 };
