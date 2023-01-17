@@ -35,5 +35,3 @@ The hands-on project of Fontend Masters course complete intro react v7
   - Add build script
 - https instead of http for security issue
 
-
-// Test-pull
