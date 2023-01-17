@@ -1,6 +1,6 @@
 # complete-intro-react-v7
-The hands-on project of Fontend Masters course complete intro react v7
 
+The hands-on project of Fontend Masters course complete intro react v7
 
 ### Course Hightlights
 
@@ -35,5 +35,4 @@ The hands-on project of Fontend Masters course complete intro react v7
   - Add build script
 - https instead of http for security issue
 
-
-// Test-pull
+// Test-pull 1
