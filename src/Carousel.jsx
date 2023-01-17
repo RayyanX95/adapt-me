@@ -4,7 +4,7 @@ class Carousel extends Component {
   state = {
     active: 0,
   };
-  // test pull
+  // test pull111
   static defaultProps = {
     images: ["https://pets-images.dev-apis.com/pets/none.jpg"],
   };
